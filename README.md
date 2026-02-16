@@ -1,59 +1,384 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# PHP_Laravel12_Totem
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
 
-## About Laravel
+## Project Description
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+PHP_Laravel12_Totem is a Laravel 12 based web application that integrates the Totem package to provide a graphical dashboard for managing Laravel scheduled tasks.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Totem allows developers and administrators to create, edit, monitor, and manage scheduled jobs directly from a user-friendly web interface instead of writing all scheduler code manually.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+This project demonstrates how to install, configure, and use the Totem scheduler dashboard in Laravel 12 with authentication security.
 
-## Learning Laravel
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+## Project Purpose
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+The main purpose of this project is to:
 
-## Laravel Sponsors
+- Provide a web interface to manage Laravel scheduled tasks
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- Monitor task execution status
 
-### Premium Partners
+- Create and edit scheduler tasks dynamically
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+- Improve task management without editing code manually
 
-## Contributing
+- Learn integration of third-party packages in Laravel 12
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
 
-## Code of Conduct
+## Features
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+- Totem Scheduler Dashboard UI
+- Create Scheduled Tasks from Web Interface
+- Edit and Delete Scheduled Tasks
+- Enable / Disable Scheduler Tasks
+- View Task Logs and Execution Status
+- Authentication using Laravel Breeze
+- Secure Access to Totem Dashboard
+- No manual scheduler coding required
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## What is Totem?
 
-## License
+Totem is a Laravel package that provides:
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- Web dashboard for scheduler
+
+- Create scheduled tasks
+
+- Edit scheduled tasks
+
+- View task logs
+
+- Enable / Disable tasks
+
+- Monitor task execution
+
+
+## Technologies Used
+
+- PHP 8.2+
+
+- Laravel 12
+
+- MySQL
+
+- Laravel Totem package
+
+- Laravel Breeze (Authentication)
+
+- Composer
+
+- Node.js & NPM
+
+- Bootstrap / Blade UI
+
+
+
+---
+
+#  Laravel 12 + Totem Setup (Final Verified)
+
+---
+
+
+## STEP 1: Create Laravel 12 Project
+
+### Open terminal / CMD and run:
+
+```
+composer create-project laravel/laravel PHP_Laravel12_Totem "12.*"
+
+```
+
+### Go inside project:
+
+```
+cd PHP_Laravel12_Totem
+
+```
+
+#### Explanation:
+
+- composer create-project → creates a new Laravel project
+
+- laravel/laravel → official Laravel package
+
+- PHP_Laravel12_Totem → project folder name
+
+- "12.*" → installs Laravel version 12
+
+- Result: A fresh Laravel 12 project is created.
+
+
+
+
+## STEP 2: Database Setup (Required for Totem)
+
+
+### Open .env and set:
+
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel12_totem
+DB_USERNAME=root
+DB_PASSWORD=
+
+```
+
+### Create database in MySQL / phpMyAdmin:
+
+```
+Database name: laravel12_totem
+
+```
+
+
+
+
+## STEP 3: Studio Laravel Totem package
+
+### Totem is available as studio/laravel‑totem
+
+```
+composer require studio/laravel-totem
+
+```
+
+#### Explanation:
+
+This installs Totem package.
+
+Totem is a Laravel scheduler dashboard.
+
+
+
+
+## STEP 4: Publish Totem Files
+
+### Run:
+
+```
+php artisan vendor:publish
+
+```
+
+### Select the number for:
+
+```
+Studio\Totem\TotemServiceProvider
+
+```
+
+#### Explanation:
+
+This copies Totem files into your project.
+
+
+
+## STEP 5: Run Migrations
+
+### Run:
+
+```
+php artisan migrate
+
+```
+
+Totem tables will be created (totem_jobs, totem_tasks, etc.) — this is required for the dashboard.
+
+
+
+## STEP 6: Protect Totem UI (Optional – Recommended)
+
+To prevent random users from accessing the scheduler dashboard, set authentication.
+
+### Install Laravel Breeze:
+
+```
+
+composer require laravel/breeze --dev
+
+php artisan breeze:install
+
+npm install
+
+npm run dev
+
+php artisan migrate
+
+```
+
+Now you have auth routes (login/register)
+
+
+
+
+
+## STEP 7: Totem Routes (Automatic)
+
+
+- Totem routes are automatically registered by the Totem service provider.
+
+- You DO NOT need to add any routes manually.
+
+- Totem dashboard URL:
+
+```
+http://127.0.0.1:8000/totem
+
+```
+
+- To protect the dashboard, install Laravel Breeze authentication.
+
+
+
+
+
+## STEP 8:Run the App
+
+### Start server:
+
+```
+php artisan serve
+
+```
+
+### Now open in browser:
+
+```
+http://127.0.0.1:8000/totem
+
+```
+
+
+## STEP 9: Login to Access Totem Dashboard
+
+### Open browser:
+
+```
+http://127.0.0.1:8000/login
+
+```
+Register a new user or login.
+
+### After login, open:
+
+```
+http://127.0.0.1:8000/totem
+
+```
+
+
+
+## STEP 10: Run Laravel Scheduler
+
+Totem manages tasks, but Laravel scheduler must be running.
+
+### Run this command:
+
+```
+php artisan schedule:work
+
+```
+
+This will execute scheduled tasks automatically.
+
+
+
+## So you can see this type Output:
+
+### Register Page:
+
+
+<img width="1917" height="965" alt="Screenshot 2026-02-16 102439" src="https://github.com/user-attachments/assets/7caa4352-90da-453e-8492-52f8f20a9a90" />
+
+
+### Login Page:
+
+
+<img width="1919" height="959" alt="Screenshot 2026-02-16 102521" src="https://github.com/user-attachments/assets/9b5f9e90-f0f1-4965-b74a-5b3add9892b4" />
+
+
+### Task List:
+
+
+<img width="1918" height="963" alt="image" src="https://github.com/user-attachments/assets/a6515125-de63-4667-88e1-5e77a2c02ede" />
+
+
+### Task Create:
+
+
+<img width="1919" height="966" alt="Screenshot 2026-02-15 114453" src="https://github.com/user-attachments/assets/d69ab5e5-ea46-4c43-9517-80db38f1ecab" />
+
+After create:
+
+<img width="1919" height="966" alt="Screenshot 2026-02-15 114439" src="https://github.com/user-attachments/assets/436336f2-ebaa-4a5a-8cdd-869347b7026f" />
+
+
+### Task Details:
+
+
+<img width="1919" height="960" alt="Screenshot 2026-02-15 114632" src="https://github.com/user-attachments/assets/16309506-e233-42b9-8f3c-1c19af1fd086" />
+
+
+### Task Edit:
+
+
+<img width="1919" height="964" alt="Screenshot 2026-02-15 114650" src="https://github.com/user-attachments/assets/1e83bb15-263a-4e45-821c-f2b541b81f9a" />
+
+After Edit:
+
+<img width="1919" height="964" alt="Screenshot 2026-02-15 114659" src="https://github.com/user-attachments/assets/b5e037df-6a55-486d-9898-bfccee8f0f35" />
+
+
+### Artisan Command to view scheduled tasks:
+
+
+<img width="1470" height="308" alt="Screenshot 2026-02-15 114811" src="https://github.com/user-attachments/assets/430f814d-d139-48a2-b4dd-385fc2f6d6ec" />
+
+
+---
+
+# Project Folder Structure:
+
+```
+
+
+PHP_Laravel12_Totem/
+│
+├── app/
+│   ├── Console/
+│   ├── Http/
+│   └── Models/
+│
+├── bootstrap/
+│
+├── config/
+│   └── totem.php
+│
+├── database/
+│   ├── migrations/
+│   │   ├── create_users_table.php
+│   │   ├── create_totem_tasks_table.php
+│   │   ├── create_totem_jobs_table.php
+│   │   └── create_totem_logs_table.php
+│
+├── public/
+│
+├── resources/
+│   └── views/
+│
+├── routes/
+│   └── web.php
+│
+├── vendor/
+│   └── studio/
+│       └── totem/
+│
+├── .env
+├── artisan
+├── composer.json
+
+```
